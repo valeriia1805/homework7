@@ -38,14 +38,11 @@ public class Main {
         int countryY = 12_000_000;
         int birthRatePerYear = 17;
         int deathRatePerYear = 8;
+        int populationGrowth = birthRatePerYear-deathRatePerYear;
         int year = 0;
-        birthRatePerYear = birthRatePerYear * countryY / 1000;
-        deathRatePerYear = deathRatePerYear * countryY / 1000;
-        System.out.println("Рождаемость в год " + birthRatePerYear);
-        System.out.println("Сметность в год " + deathRatePerYear);
         while (year < 10) {
             year = year + 1;
-            countryY = countryY + birthRatePerYear - deathRatePerYear;
+            countryY += countryY/1000*populationGrowth;
             System.out.println("Год " + year + ", численность населения составляет " + countryY);
         }
     }
